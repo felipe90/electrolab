@@ -1,0 +1,8 @@
+
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f {OR}
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !index
+RewriteRule (.*) / [L]
+
+RewriteRule ^ index.html

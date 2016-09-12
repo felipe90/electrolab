@@ -10,11 +10,11 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
   <link rel="stylesheet" href="app.css">
-
+  <base href="/" />
 </head>
 <body>
   <header class="header">
-      <h1>Minder</h1>
+      <h1>Electrolab - Admin</h1>
   </header>
 
   <ng-include src="'./menu/menu.html'" scope="" onload=""></ng-include>
@@ -41,6 +41,8 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-mocks/angular-mocks.js"></script>
   <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
 
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
   <script>
@@ -58,7 +60,9 @@
 
 
   <script src="app.js"></script>
+  <script src="home/home.js"></script>
   <script src="stock/stock.js"></script>
+  <script src="bill/bill.js"></script>
 
 </body>
 </html>
