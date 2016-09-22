@@ -1,0 +1,94 @@
+/* 
+	Main Styles
+ */
+ 
+body {
+	text-align: left;
+	font-size: 16px;
+}
+
+header {
+    position: relative;
+	margin-bottom: 0.3rem;
+	background: #ff6d00;
+	color: white !important;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+}
+
+header md-toolbar {
+	background: #ff6d00 !important;
+}
+
+header h1{
+	display: inline-block;
+	color: white !important;
+	margin: 0.8rem;
+	font-size: 1.5rem !important;
+}
+
+.header-avatar {
+	position: absolute;
+	z-index: 2;
+    right: 15%;
+    top: 50%;
+    background: #757575;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+        box-shadow: 0 8px 6px -6px black;
+}
+
+/* Movile screens */
+@media only screen  
+  and (max-device-width: 320px) {
+
+	body {
+		max-width: 480px;
+	}
+	header h2{ 
+		display: none; 
+	}
+	nav {
+		display: none;
+	}	
+}
+
+
+/* Little Divices */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+
+	body {
+		max-width: 480px;
+	}
+	header h2{ 
+		display: none; 
+	}
+	nav {
+		display: none;
+	}
+}
+
+/* Tablet or medium */
+@media only screen 
+  and (min-device-width: 480px) 
+  and (max-device-width: 720px) {
+
+	nav {
+		display: block;
+	}
+}
+
+
+/* Desktop or bigger */
+@media only screen 
+  and (min-device-width: 720px) {
+	
+	nav {
+		display: block;
+	}	
+}

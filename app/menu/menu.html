@@ -1,10 +1,74 @@
 
 <!-- menu template -->
 
-<nav class="md-padding md-raised">
-	<md-nav-bar aria-label="toggle">
-        <md-nav-item md-nav-href="home" name="home">Home</md-nav-item> 
-		<md-nav-item md-nav-href="stock" name="stock">Inventario</md-nav-item>
-        <md-nav-item md-nav-href="bill" name="bill">Facturas</md-nav-item>       
-	</md-nav-bar>
-</nav>
+<div ng-controller="menuController" ng-cloak>
+    
+    <!-- header -->
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Side Menu" >
+                <md-icon md-svg-src="./dist/img/menu.svg"></md-icon> 
+            </md-button>
+            <h1>Electrolab</h1>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="toggleRight()" aria-label="Configuracion">
+                <md-icon md-svg-icon="./dist/img/settings_white.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div class="header-avatar">
+        <md-icon md-svg-src = './dist/img/person.svg'></md-icon>
+        <strong>{{user.name}}</strong>
+    </div>
+    <nav class="md-padding md-raised">
+        <md-nav-bar aria-label="toggle">
+            <md-nav-item md-nav-href="home" name="Home">
+                <md-icon md-svg-src="./dist/img/dashboard-black.svg"></md-icon>Inicio
+            </md-nav-item>
+            <md-nav-item md-nav-href="stock" name="Stock">
+                <md-icon md-svg-src="./dist/img/movie-black.svg"></md-icon>Inventario
+            </md-nav-item>
+            <md-nav-item md-nav-href="bill" name="Bill">
+                <md-icon md-svg-src="./dist/img/tv-black.svg"></md-icon>Facturas
+            </md-nav-item>
+        </md-nav-bar>
+    </nav>
+
+   <!-- FAB buttons -->
+
+    <md-content class="movile-menu" layout="column">
+        <md-fab-speed-dial md-open="false" md-direction="up" class="md-scale ng-isolate-scope _md-animations-ready md-up">
+            <md-fab-trigger>
+                <md-button aria-label="Menu" class="md-fab md-warn">
+                    <md-tooltip md-direction="left">Crear</md-tooltip>
+                    <md-icon md-svg-src="./dist/img/add_white.svg"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+
+            <md-fab-actions>
+                <md-button aria-label="Home" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left">Home</md-tooltip>
+                    <a ng-href="home">
+                        <md-icon md-svg-src="./dist/img/dashboard.svg"></md-icon>
+                    </a>
+                </md-button>
+                <md-button aria-label="Stock" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left"> + Producto</md-tooltip>
+                    <a ng-href="stock">
+                        <md-icon md-svg-src="./dist/img/tv.svg"></md-icon>
+                    </a>
+                </md-button>
+                <md-button aria-label="Bill" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left"> + Factura</md-tooltip>
+                    <a ng-href="bill">
+                        <md-icon md-svg-src="./dist/img/movie.svg"></md-icon>
+                    </a>
+                </md-button>
+            </md-fab-actions>
+        </md-fab-speed-dial>
+    </md-content> 
+</div>
+
+
+

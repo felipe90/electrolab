@@ -5,23 +5,78 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myAdminApp" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Electrolab</title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Electrolab Administration Plataform">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+  <title>Electrolab - Admin</title>
   <meta name="description" content="">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-  <link rel="stylesheet" href="app.css">
-  <base href="/" />
+  <link rel="stylesheet" href="dist/css/normalize.css">
+  <link rel="stylesheet" href="dist/css/main-styles.css">
+  <link rel="stylesheet" href="dist/css/home.css">
+  <link rel="stylesheet" href="dist/css/stock.css">
+
+  <!-- <base href="/" /> -->
 </head>
 <body>
-  <header class="header">
-      <h1>Electrolab - Admin</h1>
-  </header>
-
-  <ng-include src="'./menu/menu.html'" scope="" onload=""></ng-include>
-
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
+
+  <header class="header">
+    <ng-include src="'./menu/menu.html'" scope="" onload=""></ng-include>
+  </header>
+
+  <!-- Sidenav -->
+
+  <section layout="row" flex>
+      <md-sidenav
+          class="md-sidenav-left"
+          md-component-id="left"
+          md-is-locked-open="$mdMedia('gt-md')"
+          md-whiteframe="4">
+        <md-toolbar>
+          <h1 class="md-toolbar-tools" >Menu</h1>
+        </md-toolbar>
+        
+        <md-content layout-padding ng-controller="sideNavLeftController">
+          <md-list flex>
+            {{cosa}}
+            <md-list-item class="md-1-line" ng-href="home" ng-click="close()">
+              <div class="md-list-item-text" layout="column"><strong>Inicio</strong></div>
+            </md-list-item>
+            <md-list-item class="md-1-line" ng-href="stock" ng-click="close()">
+              <div class="md-list-item-text" layout="column"><strong>Inventario</strong></div>
+            </md-list-item>
+            <md-list-item class="md-1-line" ng-href="bill" ng-click="close()">
+              <div class="md-list-item-text" layout="column"><strong>Factura</strong></div>
+            </md-list-item>
+          </md-list>
+      </md-sidenav>
+
+      <md-sidenav
+          class="md-sidenav-right"
+          md-component-id="right"
+          md-is-locked-open="$mdMedia('gt-md')"
+          md-whiteframe="4">
+
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Configuracion</h1>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="sideNavRightController">
+
+          <md-button ng-click="close()" class="md-primary" hide-gt-md>
+            Cerrar
+          </md-button>
+          <p hide show-gt-md>
+            This sidenav is locked open on your device. To go back to the default behavior,
+            narrow your display.
+          </p>
+        </md-content>
+
+      </md-sidenav>
+  </section>
+
 
   <section class="main-container">
       <div ui-view></div> 
@@ -48,21 +103,24 @@
   <script>
     // Initialize Firebase
     var config = {
-    apiKey: "AIzaSyBTw3198Xova5uf4KZo05x5UR2MkRFcEio",
-    authDomain: "admin-electrolab-3727e.firebaseapp.com",
-    databaseURL: "https://admin-electrolab-3727e.firebaseio.com",
-    storageBucket: "admin-electrolab-3727e.appspot.com",
+      apiKey: "AIzaSyCbexAOLmNWd1zmtIuC_qxKzmmZJ39kloA",
+      authDomain: "admin-electrolab.firebaseapp.com",
+      databaseURL: "https://admin-electrolab.firebaseio.com",
+      storageBucket: "admin-electrolab.appspot.com",
+      messagingSenderId: "222053965166"
     };
     firebase.initializeApp(config);
   </script>
     
-  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
 
 
-  <script src="app.js"></script>
+  <script src="app.js"></script>  
+  <script src="menu/menu.js"></script>
   <script src="home/home.js"></script>
   <script src="stock/stock.js"></script>
   <script src="bill/bill.js"></script>
+
 
 </body>
 </html>

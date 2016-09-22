@@ -5,14 +5,16 @@ angular.module('myAdminApp', [
   'ngRoute',
   'ui.router',
   'ngMaterial',
+  'myAdminApp.menu',
   'myAdminApp.home',
   'myAdminApp.stock',
-  'myAdminApp.bill'
+  'myAdminApp.bill',
 
 ]).
-config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider) {
-
+config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
+    function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider, $mdThemingProvider) {
     
+
     $stateProvider
       .state('/', {
             url: "/",
@@ -37,6 +39,10 @@ config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProv
       requireBase: false
     }).hashPrefix('!');
 
+    $mdThemingProvider.theme('default')
+      .primaryPalette('orange')
+      // .accentPalette('orange');
+    
     // $routeProvider
     //   .when('/', {
     //       templateUrl : 'home/home.html',
@@ -54,6 +60,5 @@ config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProv
     //   .otherwise({
     //     redirectTo: '/'
     // });
-
 
 }]);

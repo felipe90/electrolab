@@ -1,6 +1,6 @@
-<!-- Stock  template-->
+<!-- ratetv  template-->
 
-<section class="rateMovie-container">
+<section ng-controller="rateTvCtrl as ctrl" class="rateMovie-container">
   <md-button md-no-ink class="md-primary" ng-click="ctrl.toogleSearchOptions()">{{ctrl.showPreferencesTitle}}</md-button>
   <section class="rateMovie-toolbar" ng-hide="ctrl.showPreferences">
 
@@ -34,8 +34,7 @@
         </md-select>
       </md-input-container>
   </section>
-
-  <!-- <md-button class="md-raised md-primary get-movie-btn" ng-click="ctrl.requestTvItems()"> Get TV Shows! </md-button> -->
+  <md-button class="md-raised md-primary get-movie-btn" ng-click="ctrl.requestTvItems()"> Get TV Shows! </md-button>
 
   <md-content class="md-padding" layout-xs="column">
     <article ng-repeat="item in ctrl.tvItems | limitTo:3 " class="ratemovie-item">

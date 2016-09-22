@@ -1,6 +1,6 @@
-<!-- Stock  template-->
+<!-- rateMovie  template-->
 
-<section class="rateMovie-container">
+<section ng-controller="rateMovieCtrl as ctrl" class="rateMovie-container">
   <md-button md-no-ink class="md-primary" ng-click="ctrl.toogleSearchOptions()">{{ctrl.showPreferencesTitle}}</md-button>
   <section class="rateMovie-toolbar" ng-hide="ctrl.showPreferences">
 
@@ -34,16 +34,15 @@
         </md-select>
       </md-input-container>
   </section>
-
-  <!-- <md-button class="md-raised md-primary get-movie-btn" ng-click="ctrl.requestTvItems()"> Get TV Shows! </md-button> -->
+  <md-button class="md-raised md-primary get-movie-btn" ng-click="ctrl.requestMovieItems()"> Get movies! </md-button>
 
   <md-content class="md-padding" layout-xs="column">
-    <article ng-repeat="item in ctrl.tvItems | limitTo:3 " class="ratemovie-item">
+    <article ng-repeat="item in ctrl.movieItems | limitTo:3 " class="ratemovie-item">
       <md-card>
-        <img ng-src="{{ctrl.config.imgUrl+ctrl.config.imgSizes.tiny+item.backdrop_path}}" alt="{{item.name}}">
+        <img ng-src="{{ctrl.config.imgUrl+ctrl.config.imgSizes.tiny+item.backdrop_path}}" alt="{{item.original_title}}">
         <div class="ratemovie-item-metadata">
           <div class="ratemovie-item-header">
-            <h2>{{item.name}}</h2>
+            <h2>{{item.original_title}}</h2>
             <md-icon md-svg-src = './dist/img/person-black.svg'></md-icon><p>{{item.vote_count}}</p>
             <md-icon md-svg-src = './dist/img/ratestar-black.svg'></md-icon><p>{{item.vote_average}}</p>
           </div>
@@ -58,7 +57,7 @@
               <md-input-container>
                 <input flex type="number" ng-model="item.rate" aria-label="red" aria-controls="red-slider">
             </md-slider-container>
-            <md-button class="md-raised md-primary" aria-label="button" md-ripple-size="auto" ng-click="ctrl.itemVote( item, item.rate)"> Rate it!</md-button>
+            <md-button class="md-raised md-primary" aria-label="button" md-ripple-size="auto" ng-click="ctrl.itemVote(item.rate)"> Rate it!</md-button>
           </div>
         </div>
       </md-card>
