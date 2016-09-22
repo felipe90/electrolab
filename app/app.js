@@ -9,6 +9,7 @@ angular.module('myAdminApp', [
   'myAdminApp.home',
   'myAdminApp.stock',
   'myAdminApp.bill',
+  'myAdminApp.createItem',
 
 ]).
 config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
@@ -30,7 +31,13 @@ config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProv
             url: "/bill",
             templateUrl: 'bill/bill.html',
             controller: 'billController'
+      })
+      .state('createItem', {
+            url: "/createItem",
+            templateUrl: 'createItem/createItem.html',
+            controller: 'createItemController'
       });
+      
 
     $urlRouterProvider.otherwise("/");
     

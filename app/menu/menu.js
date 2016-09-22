@@ -1,6 +1,6 @@
 menuApp = angular.module('myAdminApp.menu', ['ngMaterial']);
 
-menuApp.controller('menuController', ['$scope','$mdSidenav', function ($scope, $mdSidenav) {
+menuApp.controller('menuController', ['$scope','$mdSidenav', '$timeout', function ($scope, $mdSidenav, $timeout) {
 	console.log("menu ctrl");
 
    	// init vars
@@ -8,7 +8,14 @@ menuApp.controller('menuController', ['$scope','$mdSidenav', function ($scope, $
 		name: 'Luis',
 	}
 	$scope.isOpen = false;
+	$scope.fabOut = false;
 
+	$scope.fadeTooltip = function () {		
+		return $timeout(function(){
+			return false;			
+		},3000)
+	}
+	
 	$scope.toggleLeft = function () {
 		buildToggler('left');
 	}

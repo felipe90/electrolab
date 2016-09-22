@@ -47,23 +47,13 @@
             </md-fab-trigger>
 
             <md-fab-actions>
-                <md-button aria-label="Home" class="md-fab md-raised md-mini">
-                    <md-tooltip md-direction="left">Home</md-tooltip>
-                    <a ng-href="home">
-                        <md-icon md-svg-src="./dist/img/dashboard.svg"></md-icon>
-                    </a>
+                <md-button  ng-href="" aria-label="Stock" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="fabOut"> + Producto</md-tooltip>
+                    <md-icon md-svg-src="./dist/img/developer_board_white.svg"></md-icon>
                 </md-button>
-                <md-button aria-label="Stock" class="md-fab md-raised md-mini">
-                    <md-tooltip md-direction="left"> + Producto</md-tooltip>
-                    <a ng-href="stock">
-                        <md-icon md-svg-src="./dist/img/tv.svg"></md-icon>
-                    </a>
-                </md-button>
-                <md-button aria-label="Bill" class="md-fab md-raised md-mini">
-                    <md-tooltip md-direction="left"> + Factura</md-tooltip>
-                    <a ng-href="bill">
-                        <md-icon md-svg-src="./dist/img/movie.svg"></md-icon>
-                    </a>
+                <md-button  ng-href="" aria-label="Bill" class="md-fab md-raised md-mini">
+                    <md-tooltip md-direction="left" md-visible="fabOut"> + Factura</md-tooltip>
+                    <md-icon md-svg-src="./dist/img/movie.svg"></md-icon>
                 </md-button>
             </md-fab-actions>
         </md-fab-speed-dial>
