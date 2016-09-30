@@ -5,14 +5,15 @@ angular.module('myAdminApp', [
   'ngRoute',
   'ui.router',
   'ngMaterial',
+  'lfNgMdFileInput',
   'myAdminApp.menu',
   'myAdminApp.home',
   'myAdminApp.stock',
   'myAdminApp.bill',
   'myAdminApp.createItem',
 
-]).
-config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
+])
+.config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
     function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider, $mdThemingProvider) {
     
 
@@ -68,4 +69,8 @@ config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProv
     //     redirectTo: '/'
     // });
 
-}]);
+}])
+
+.run(function(){
+  // location.reload(true);
+})

@@ -22,7 +22,7 @@
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "reload -n localhost -p 8000 -d ./app -b --verbose",
+    "start": "reload -n localhost -p 8000 -d ./app -b -v",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",

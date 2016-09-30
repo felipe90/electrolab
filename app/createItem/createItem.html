@@ -1,16 +1,14 @@
-<md-content class="md-padding" layout-xs="column" layout="row">
-  <div flex-xs flex-gt-xs="50" layout="column">
+<md-content class="md-padding" layout="row">
+  <div flex layout="column">
     <md-card>
-      <img ng-src="{{item.image}}" class="md-card-image" alt="{{item.name}}">
       <md-card-title>
         <md-card-title-text>
-          <span class="md-headline">Nuevo producto</span>
+          <span class="md-headline">{{newItem.name}}</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-content layout="column" class="md-block">
-        <md-input-container>
-          <md-button class="md-raised" aria-label="Subir imagen" md-ripple-size="auto">Subir Imagen</md-button>
-        </md-input-container>
+        <lf-ng-md-file-input lf-files="files" preview progress></lf-ng-md-file-input>
+        <span flex></span>
         <md-input-container>
           <label>Nombre</label>
           <input type="text" ng-model="newItem.name">
@@ -19,14 +17,26 @@
           <label>Descripción</label>
           <input type="text" ng-model="newItem.description">
         </md-input-container>
-        <md-input-container>
-          <label>Cantidad</label>
-          <input type="text" ng-model="newItem.stock">
-        </md-input-container>
+        <div layout="row"  layout-align="space-around center">
+          <md-input-container>
+            <label>Categoria</label>
+            <md-select ng-model="newItem.stock" aria-label="categoria">
+              <md-select-label>Categoria</md-select-label>
+              <md-option ng-value="opt" ng-repeat="opt in stokCategories">{{ opt }}</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container>
+            <label>Cantidad</label>
+            <md-select ng-model="newItem.stock" aria-label="cantidad">
+              <md-select-label>Cantidad</md-select-label>
+              <md-option ng-value="opt" ng-repeat="opt in stokOPt">{{ opt }}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
       </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
-        <md-button>Cancelar</md-button>
-        <md-button>Aceptar</md-button>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-raised" ng-click="history.back()">Cancelar</md-button>
+        <md-button class="md-raised md-primary">Aceptar</md-button>
       </md-card-actions>
     </md-card>
   </div>
