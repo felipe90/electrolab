@@ -7,6 +7,7 @@ angular.module('myAdminApp', [
   'ngMaterial',
   'lfNgMdFileInput',
   'myAdminApp.menu',
+  'myAdminApp.login',
   'myAdminApp.home',
   'myAdminApp.stock',
   'myAdminApp.bill',
@@ -14,14 +15,20 @@ angular.module('myAdminApp', [
 
 ])
 .config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
+    
     function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider, $mdThemingProvider) {
     
 
     $stateProvider
       .state('/', {
             url: "/",
-            templateUrl: 'home/home.html',
-            controller: 'homeController'
+            templateUrl: 'login/login.html',
+            controller: 'loginController'
+      })
+      .state('/home', {
+        url: "/home",
+        templateUrl: 'home/home.html',
+        controller: 'homeController'
       })
       .state('stock', {
             url: "/stock",

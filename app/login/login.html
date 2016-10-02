@@ -1,0 +1,26 @@
+
+<div>
+  <div>
+    <div>
+      <div>
+        <h2>Firebase Email &amp; Password Authentication</h2>
+      </div>
+      <div>
+        <p>Enter an email and password below and either sign in to an existing account or sign up</p>
+        <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
+        <input style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
+        <br/><br/>
+        <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
+        <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
+        <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
+        <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+
+        <div>
+          Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+          <div>Firebase auth <code>currentUser</code> object value:</div>
+          <pre><code id="quickstart-account-details">null</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

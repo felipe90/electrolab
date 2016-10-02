@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
   <title>Electrolab - Admin</title>
   <meta name="description" content="">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.css" />
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
   <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
   <link rel="stylesheet" href="dist/css/normalize.css">
@@ -91,21 +92,8 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-loader/angular-loader.js"></script>
-  <script src="bower_components/angular-messages/angular-messages.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
-  <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-  <!-- Angular Material Fileinput -->
-  <script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
 
-
+  <!-- Firebase Core -->
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -118,18 +106,32 @@
     };
     firebase.initializeApp(config);
   </script>
-    
+
+  <!-- Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- App Core -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-loader/angular-loader.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+  <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
   <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-
-
+  <script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
+  
   <script src="app.js"></script>  
+  <script src="login/login.js"></script>
   <script src="menu/menu.js"></script>
   <script src="home/home.js"></script>
   <script src="stock/stock.js"></script>
   <script src="bill/bill.js"></script>
   <script src="createItem/createItem.js"></script>
-
-
 
 </body>
 </html>
