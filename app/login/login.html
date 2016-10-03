@@ -1,26 +1,34 @@
 
-<div>
-  <div>
-    <div>
-      <div>
-        <h2>Firebase Email &amp; Password Authentication</h2>
-      </div>
-      <div>
-        <p>Enter an email and password below and either sign in to an existing account or sign up</p>
-        <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
-        <input style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
-        <br/><br/>
-        <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
-        <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
-        <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
-        <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
 
-        <div>
-          Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-          <div>Firebase auth <code>currentUser</code> object value:</div>
-          <pre><code id="quickstart-account-details">null</code></pre>
-        </div>
+
+
+<section class="md-container">
+  <md-content layout-padding flex>
+    <strong>Plataforma de administración - Electrolab</strong>
+  </md-content>
+  <form name="LoginForm" ng-submit="toggleSignIn()">
+    <p>Por favor digite su email y contraseña para acceder</p>
+    
+    <md-input-container>
+      <label>Email</label>
+      <input type="text" name="email" ng-model="user.email" required>
+      <div ng-messages="LoginForm.email.$error">
+        <div ng-message="email">No es un email valido</div>
       </div>
-    </div>
-  </div>
-</div>
+    </md-input-container>
+    <md-input-container>
+      <label>Password</label>
+      <input type="password" name="pass" ng-model="user.pass" required>
+    </md-input-container>
+
+    <!-- <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
+    <input style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/> -->
+    <br/><br/>
+    <md-button type="submit" class="md-raised md-primary" aria-label="login" id="quickstart-sign-in" >Entrar</md-button>
+    <!-- <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button> -->
+<!--         <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button> -->
+
+  </form>
+</section>

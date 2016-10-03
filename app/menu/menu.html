@@ -2,9 +2,7 @@
 <!-- menu template -->
 
 <div ng-controller="menuController" ng-cloak>
-    
     <!-- header -->
-
     <md-toolbar>
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Side Menu" >
@@ -17,9 +15,9 @@
             </md-button>
         </div>
     </md-toolbar>
-    <div class="header-avatar">
+    <div ng-show="{{isUserAuth}}" class="header-avatar">
         <md-icon md-svg-src = './dist/img/person.svg'></md-icon>
-        <strong>{{user.name}}</strong>
+        <strong>{{userData.email}}</strong>
     </div>
     <nav class="md-padding md-raised">
         <md-nav-bar aria-label="toggle">

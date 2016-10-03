@@ -68,16 +68,13 @@
           <h1 class="md-toolbar-tools">Configuracion</h1>
         </md-toolbar>
         <md-content layout-padding ng-controller="sideNavRightController">
-
-          <md-button ng-click="close()" class="md-primary" hide-gt-md>
-            Cerrar
-          </md-button>
-          <p hide show-gt-md>
-            This sidenav is locked open on your device. To go back to the default behavior,
-            narrow your display.
-          </p>
+          <md-list flex>
+            {{cosa}}
+            <md-list-item class="md-1-line" ng-href="login" ng-click="close(); toggleSignOut();">
+              <div class="md-list-item-text" layout="column"><strong>Cerrar Sesión</strong></div>
+            </md-list-item>
+          </md-list>
         </md-content>
-
       </md-sidenav>
   </section>
 
@@ -95,17 +92,6 @@
 
   <!-- Firebase Core -->
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCbexAOLmNWd1zmtIuC_qxKzmmZJ39kloA",
-      authDomain: "admin-electrolab.firebaseapp.com",
-      databaseURL: "https://admin-electrolab.firebaseio.com",
-      storageBucket: "admin-electrolab.appspot.com",
-      messagingSenderId: "222053965166"
-    };
-    firebase.initializeApp(config);
-  </script>
 
   <!-- Authentication -->
   <script src="https://www.gstatic.com/firebasejs/ui/live/0.5/firebase-ui-auth.js"></script>

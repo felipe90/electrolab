@@ -5,6 +5,8 @@ angular.module('myAdminApp', [
   'ngRoute',
   'ui.router',
   'ngMaterial',
+  'ngMessages',
+  'firebase',
   'lfNgMdFileInput',
   'myAdminApp.menu',
   'myAdminApp.login',
@@ -14,19 +16,23 @@ angular.module('myAdminApp', [
   'myAdminApp.createItem',
 
 ])
-.config(['$locationProvider', '$stateProvider', '$routeProvider', '$urlRouterProvider', '$mdThemingProvider', 
+.config([
+  '$locationProvider', 
+  '$stateProvider', 
+  '$routeProvider', 
+  '$urlRouterProvider', 
+  '$mdThemingProvider', 
     
-    function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider, $mdThemingProvider) {
+  function($locationProvider, $stateProvider, $routeProvider, $urlRouterProvider, $mdThemingProvider) {
     
-
     $stateProvider
-      .state('/', {
-            url: "/",
+      .state('login', {
+            url: "/login",
             templateUrl: 'login/login.html',
             controller: 'loginController'
       })
-      .state('/home', {
-        url: "/home",
+      .state('/', {
+        url: "/",
         templateUrl: 'home/home.html',
         controller: 'homeController'
       })
@@ -56,28 +62,27 @@ angular.module('myAdminApp', [
 
     $mdThemingProvider.theme('default')
       .primaryPalette('orange')
-      // .accentPalette('orange');
-    
-    // $routeProvider
-    //   .when('/', {
-    //       templateUrl : 'home/home.html',
-    //       controller : 'homeController'
-    //   })
-    //   .when('/stock', {
-    //       templateUrl : 'stock/stock.html',
-    //       controller : 'stockController'
-    //   })
-    //   .when('/bill', {
-    //       templateUrl : 'bill/bill.html',
-    //       controller : 'billController'
-    //   })
-
-    //   .otherwise({
-    //     redirectTo: '/'
-    // });
 
 }])
 
-.run(function(){
-  // location.reload(true);
-})
+.run(['$location', function($location){
+
+  var config = {
+    apiKey: "AIzaSyCbexAOLmNWd1zmtIuC_qxKzmmZJ39kloA",
+    authDomain: "admin-electrolab.firebaseapp.com",
+    databaseURL: "https://admin-electrolab.firebaseio.com",
+    storageBucket: "admin-electrolab.appspot.com",
+    messagingSenderId: "222053965166"
+  };
+
+  firebase.initializeApp(config);
+  var rootRef = firebase.database().ref();
+
+  // Check if user is logged
+  if(firebase.auth().currentUser){
+      $location.path('home');
+  } else {
+      $location.path('login');
+  }
+
+}])
