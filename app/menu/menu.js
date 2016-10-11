@@ -3,8 +3,10 @@ menuApp = angular.module('myAdminApp.menu', ['ngMaterial', 'firebase']);
 menuApp.controller('menuController', ['$scope','$mdSidenav', '$location', function ($scope, $mdSidenav, $location) {
 	console.log("menu ctrl");
  	
-   	// init vars
+	//check user Authenticaded
+	checkUserAuth();
 
+   	// init vars
    	$scope.isUserAuth = false;
 
  	$scope.userData = $scope.userData || {};
@@ -28,23 +30,28 @@ menuApp.controller('menuController', ['$scope','$mdSidenav', '$location', functi
         });
     }
 
+    function checkUserAuth() {
+    	firebase.auth().currentUser ? $scope.isUserAuth = true : $scope.isUserAuth = false;
+	    // $scope.$apply(); 
+    }
+
     // firebase auth listenner
     firebase.auth().onAuthStateChanged(function(){
 
     	var user = firebase.auth().currentUser; 
 
-	    if(firebase.auth().currentUser){
-	      $scope.isUserAuth = true;
-	      // $scope.userData = user;
-	      // is just temp solution
-	    
-	      var index = user.email.indexOf("@");
-	      $scope.userData.email = user.email.slice(0,index);
-	      console.log($scope.userData);
-	      $scope.$apply();
+	    if(firebase.auth().currentUser){  
+		    $scope.isUserAuth = true;
+		    // $scope.userData = user;
+		    // is just temp solution
+		    
+		    var index = user.email.indexOf("@");
+		    $scope.userData.email = user.email.slice(0,index);
+		    console.log($scope.userData);
 	    } else {
-
+	    	$scope.isUserAuth = false;
 	    }
+		$scope.$apply();
   });
 }]);
 

@@ -5,17 +5,17 @@
     <!-- header -->
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Side Menu" >
+            <md-button ng-if="isUserAuth" class="md-icon-button" ng-click="toggleLeft()" aria-label="Side Menu" >
                 <md-icon md-svg-src="./dist/img/menu.svg"></md-icon> 
             </md-button>
             <h1>Electrolab</h1>
             <span flex></span>
-            <md-button class="md-icon-button" ng-click="toggleRight()" aria-label="Configuracion">
+            <md-button ng-if="isUserAuth" class="md-icon-button" ng-click="toggleRight()" aria-label="Configuracion">
                 <md-icon md-svg-icon="./dist/img/settings_white.svg"></md-icon>
             </md-button>
         </div>
     </md-toolbar>
-    <div ng-show="{{isUserAuth}}" class="header-avatar">
+    <div ng-if="isUserAuth" class="header-avatar">
         <md-icon md-svg-src = './dist/img/person.svg'></md-icon>
         <strong>{{userData.email}}</strong>
     </div>
@@ -35,7 +35,7 @@
 
    <!-- FAB buttons -->
 
-    <md-content class="movile-menu" layout="column">
+    <md-content ng-if="isUserAuth" class="movile-menu" layout="column">
         <md-fab-speed-dial md-open="false" md-direction="up" class="md-scale ng-isolate-scope _md-animations-ready md-up">
             <md-fab-trigger>
                 <md-button aria-label="Menu" class="md-fab md-warn">
