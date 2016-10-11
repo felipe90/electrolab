@@ -1,4 +1,4 @@
-# Electrolab Admin Plataform (based on angular-sedd)
+# Electrolab Admin Plataform (based on angular-seed)
 
 ## Getting Started
 
