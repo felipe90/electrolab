@@ -19,7 +19,7 @@
         <md-icon md-svg-src = './dist/img/person.svg'></md-icon>
         <strong>{{userData.email}}</strong>
     </div>
-    <nav class="md-padding md-raised">
+    <nav ng-if="isUserAuth" class="md-padding md-raised">
         <md-nav-bar aria-label="toggle">
             <md-nav-item md-nav-href="home" name="Home">
                 <md-icon md-svg-src="./dist/img/dashboard-black.svg"></md-icon>Inicio
