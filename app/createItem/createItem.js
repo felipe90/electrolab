@@ -1,9 +1,19 @@
 menuApp = angular.module('myAdminApp.createItem', ['ngMaterial']);
 
-menuApp.controller('createItemController', ['$scope', function ($scope) {
+menuApp.controller('createItemController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
 	console.log("create item ctrl");
 
 	// init variables
+	$scope.stokCategories = getStockCategories();
+	$scope.stokOPt = getStockItems();
+	$scope.newItem = {
+		image :  null,
+		name : null,
+		description : null,
+		category : null,
+		stock : null,
+	};
+
 	function getStockItems () {
 		var items= [];
 		for(i=0; i<=100; i++) {
@@ -17,10 +27,10 @@ menuApp.controller('createItemController', ['$scope', function ($scope) {
 		return items
 	}
 
-	$scope.stokCategories = getStockCategories();
-	$scope.stokOPt = getStockItems();
-	$scope.newItem = {};
+	$scope.createItem = function() {
+		console.log($scope.newItem)
 
+	}
 
 	$scope.$watch('files.length',function(newVal,oldVal){
         try{

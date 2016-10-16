@@ -2,36 +2,21 @@
 
 <section class="rateMovie-container">
   <section class="rateMovie-toolbar">
-    <!-- select year  -->
+    <!-- input name  -->
     <md-input-container class="md-block" flex-gt-sm>
-      <label>Year</label>
-      <md-select ng-model="ctrl.pref.year">
-        <md-option ng-repeat="item in ctrl.yearItems" value="{{item}}">
-          {{item}}
-        </md-option>
-      </md-select>
+      <label>Nombre</label>
+      <input type="text" ng-model="searchItem.name">
     </md-input-container>
 
-    <!-- select order  -->
+    <!-- select category -->
     <md-input-container class="md-block" flex-gt-sm>
-      <label>Order by</label>
-      <md-select ng-model="ctrl.pref.order">
-        <md-option ng-repeat="item in ctrl.orderItems" value="{{item.id}}">
+      <label>Categoria</label>
+      <md-select ng-model="searchItem.order">
+        <md-option ng-repeat="item in categoryList" value="{{item.name}}">
           {{item.name}}
         </md-option>
       </md-select>
     </md-input-container>
-
-    <!-- genre select -->
-    <md-input-container class="md-block" flex-gt-sm>
-        <label>Genre</label>
-        <md-select ng-model="ctrl.pref.genre">
-          <md-option ng-repeat="item in ctrl.genresItems" value="{{item.id}}">
-            {{item.name}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-  </section>
 
   <!-- <md-button class="md-raised md-primary get-movie-btn" ng-click="ctrl.requestTvItems()"> Get TV Shows! </md-button> -->
 

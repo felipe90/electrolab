@@ -7,37 +7,39 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-content layout="column" class="md-block">
-        <lf-ng-md-file-input lf-files="files" preview progress></lf-ng-md-file-input>
-        <span flex></span>
-        <md-input-container>
-          <label>Nombre</label>
-          <input type="text" ng-model="newItem.name">
-        </md-input-container>
-        <md-input-container>
-          <label>Descripción</label>
-          <input type="text" ng-model="newItem.description">
-        </md-input-container>
-        <div layout="row"  layout-align="space-around center">
+        <form name="createForm" ng-submit="createItem()" >
+          <lf-ng-md-file-input lf-files="files" preview progress></lf-ng-md-file-input>
+          <span flex></span>
           <md-input-container>
-            <label>Categoria</label>
-            <md-select ng-model="newItem.stock" aria-label="categoria">
-              <md-select-label>Categoria</md-select-label>
-              <md-option ng-value="opt" ng-repeat="opt in stokCategories">{{ opt }}</md-option>
-            </md-select>
+            <label>Nombre</label>
+            <input type="text" ng-model="newItem.name" required>
           </md-input-container>
           <md-input-container>
-            <label>Cantidad</label>
-            <md-select ng-model="newItem.stock" aria-label="cantidad">
-              <md-select-label>Cantidad</md-select-label>
-              <md-option ng-value="opt" ng-repeat="opt in stokOPt">{{ opt }}</md-option>
-            </md-select>
+            <label>Descripción</label>
+            <input type="text" ng-model="newItem.description" required>
           </md-input-container>
-        </div>
-      </md-card-content>
-      <md-card-actions layout="row" layout-align="center center">
-        <md-button class="md-raised" ng-click="history.back()">Cancelar</md-button>
-        <md-button class="md-raised md-primary">Aceptar</md-button>
-      </md-card-actions>
+          <div layout="row"  layout-align="space-around center">
+            <md-input-container>
+              <label>Categoria</label>
+              <md-select ng-model="newItem.category" aria-label="categoria" required>
+                <md-select-label>Categoria</md-select-label>
+                <md-option ng-value="opt" ng-repeat="opt in stokCategories">{{ opt }}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container>
+              <label>Cantidad</label>
+              <md-select ng-model="newItem.stock" aria-label="cantidad" required>
+                <md-select-label>Cantidad</md-select-label>
+                <md-option ng-value="opt" ng-repeat="opt in stokOPt">{{ opt }}</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="center center">
+          <md-button class="md-raised" ng-click="history.back()">Cancelar</md-button>
+          <md-button type="submit" class="md-raised md-primary">Aceptar</md-button>
+        </md-card-actions>
+      </form>
     </md-card>
   </div>
 </md-content>
