@@ -18,19 +18,30 @@
             <label>Descripción</label>
             <input type="text" ng-model="newItem.description" required>
           </md-input-container>
+          <md-input-container>
+            <label>Precio( COL $ )</label>
+            <input type="text" ng-model="newItem.price" required>
+          </md-input-container>
+          <md-input-container>
+            <label>Cantidad</label>
+            <md-select ng-model="newItem.stock" aria-label="cantidad" required>
+              <md-select-label>Cantidad</md-select-label>
+              <md-option ng-value="opt" ng-repeat="opt in stockAmounts">{{ opt }}</md-option>
+            </md-select>
+          </md-input-container>
           <div layout="row"  layout-align="space-around center">
             <md-input-container>
               <label>Categoria</label>
               <md-select ng-model="newItem.category" aria-label="categoria" required>
                 <md-select-label>Categoria</md-select-label>
-                <md-option ng-value="opt" ng-repeat="opt in stokCategories">{{ opt }}</md-option>
+                <md-option ng-value="opt" ng-repeat="opt in stockCategories">{{ opt }}</md-option>
               </md-select>
             </md-input-container>
             <md-input-container>
-              <label>Cantidad</label>
-              <md-select ng-model="newItem.stock" aria-label="cantidad" required>
-                <md-select-label>Cantidad</md-select-label>
-                <md-option ng-value="opt" ng-repeat="opt in stokOPt">{{ opt }}</md-option>
+              <label>Subcategoria</label>
+              <md-select ng-model="newItem.feature" aria-label="subcategoria" required>
+                <md-select-label>Subcategoria</md-select-label>
+                <md-option ng-value="opt" ng-repeat="opt in stockFeatures">{{ opt }}</md-option>
               </md-select>
             </md-input-container>
           </div>
