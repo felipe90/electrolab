@@ -29,6 +29,11 @@ menuApp.controller('createItemController', ['$scope', '$location', function ($sc
 		name : null,
 		description : null,
 		category : null,
+		feature : null,
+	};
+
+	$scope.newItemStock = {
+		name : null,
 		stock : null,
 	};
 
@@ -65,16 +70,41 @@ menuApp.controller('createItemController', ['$scope', '$location', function ($sc
 
 	$scope.createItem = function() {
 
-		var ref = firebase.database().ref('products/');
+		$scope.newItemStock.name = $scope.newItem.name;
 
-		ref.once('value').then(function(snapshot) {
-		 	$scope.stockProducts = snapshot.val();
-		 	console.log($scope.stockProducts);
-		 	var itemIndex = $scope.stockProducts.length;
-		 	firebase.database().ref('products/'+ itemIndex).set($scope.newItem)
-		}, function (errorObject) {
-		   console.log("The read failed: " + errorObject.code);
-		});
+		// add item 
+		firebase.database().ref('products/').once('value')
+			.then(function(snapshot) {
+		 		var items = snapshot.val();
+		 		console.log(items)
+		 		firebase.database().ref('products/'+ items.length).set($scope.newItem)
+		 			.then(function(){
+		 				console.log();
+		 			})
+		 			.catch(function(error){
+						console.log(error.code);
+		 			});
+			})
+			.catch(function(error){
+				console.log(error.code);
+			});
+
+		// // add item stock 
+		firebase.database().ref('stock/').once('value')
+			.then(function(snapshot) {
+		 		var items = snapshot.val();
+		 		console.log(items)
+		 		firebase.database().ref('stock/'+ items.length).set($scope.newItemStock)
+		 			.then(function(){
+		 				console.log();
+		 			})
+		 			.catch(function(error){
+						console.log(error.code);
+		 			});
+			})
+			.catch(function(error){
+				console.log(error.code);
+			});
 
 	}
 
